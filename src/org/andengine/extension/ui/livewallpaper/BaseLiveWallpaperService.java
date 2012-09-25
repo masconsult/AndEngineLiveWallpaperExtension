@@ -384,7 +384,6 @@ public abstract class BaseLiveWallpaperService extends GLWallpaperService implem
 		public void onResume() {
 			super.onResume();
 
-			BaseLiveWallpaperService.this.getEngine().onReloadResources();
 			BaseLiveWallpaperService.this.onResume();
 		}
 
