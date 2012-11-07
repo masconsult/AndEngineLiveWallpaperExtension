@@ -168,6 +168,10 @@ public abstract class BaseLiveWallpaperService extends GLWallpaperService implem
 
 	protected synchronized void onResume() {
 		Debug.d(this.getClass().getSimpleName() + ".onResume" + " @(Thread: '" + Thread.currentThread().getName() + "')");
+
+		if(this.mGamePaused) {
+			this.onResumeGame();
+		}
 	}
 
 	@Override
