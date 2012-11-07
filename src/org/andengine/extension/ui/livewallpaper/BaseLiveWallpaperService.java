@@ -16,6 +16,7 @@ import org.andengine.opengl.view.ConfigChooser;
 import org.andengine.opengl.view.EngineRenderer;
 import org.andengine.opengl.view.IRendererListener;
 import org.andengine.ui.IGameInterface;
+import org.andengine.ui.IGameInterface.OnCreateResourcesCallback;
 import org.andengine.util.debug.Debug;
 
 import android.app.WallpaperManager;
@@ -46,6 +47,7 @@ public abstract class BaseLiveWallpaperService extends GLWallpaperService implem
 	private boolean mGameCreated;
 	private boolean mCreateGameCalled;
 	private boolean mOnReloadResourcesScheduled;
+    protected OnCreateResourcesCallback onCreateResourcesCallback;
 
 	// ===========================================================
 	// Constructors
@@ -125,7 +127,7 @@ public abstract class BaseLiveWallpaperService extends GLWallpaperService implem
 			}
 		};
 
-		final OnCreateResourcesCallback onCreateResourcesCallback = new OnCreateResourcesCallback() {
+		onCreateResourcesCallback = new OnCreateResourcesCallback() {
 			@Override
 			public void onCreateResourcesFinished() {
 				try {
